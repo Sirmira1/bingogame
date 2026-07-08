@@ -14,6 +14,8 @@
     --radius-md: 12px;
     --radius-lg: 18px;
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    --cell-size: clamp(64px, 17vw, 76px);
+    --letter-height: clamp(46px, 11vw, 56px);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -90,9 +92,9 @@
 
   .bingo-header { display: flex; justify-content: center; gap: 8px; margin-bottom: 10px; }
   .bingo-letter {
-    width: 64px; height: 48px;
+    width: var(--cell-size); height: var(--letter-height);
     display: flex; align-items: center; justify-content: center;
-    font-size: 24px; font-weight: 800; color: #fff;
+    font-size: clamp(22px, 5vw, 28px); font-weight: 800; color: #fff;
     border-radius: var(--radius-md);
     background: linear-gradient(135deg, var(--accent), var(--accent-2));
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
@@ -100,22 +102,22 @@
 
   .bingo-grid {
     display: grid;
-    grid-template-columns: repeat(5, 68px);
+    grid-template-columns: repeat(5, var(--cell-size));
     gap: 8px;
     justify-content: center;
   }
   .bingo-cell {
-    width: 68px; height: 68px;
+    width: var(--cell-size); height: var(--cell-size);
     border: 1px solid var(--border-soft);
     border-radius: var(--radius-md);
     display: flex; align-items: center; justify-content: center;
     text-align: center;
-    font-size: 12px; font-weight: 700;
+    font-size: clamp(12px, 2.7vw, 13px); font-weight: 700;
     color: var(--text-secondary);
     background: var(--bg-card);
     cursor: pointer;
     transition: transform 0.12s ease, background 0.15s ease, box-shadow 0.15s ease;
-    padding: 5px; line-height: 1.2; user-select: none;
+    padding: clamp(5px, 1.2vw, 7px); line-height: 1.2; user-select: none;
     font-family: inherit;
     backdrop-filter: blur(6px);
   }
